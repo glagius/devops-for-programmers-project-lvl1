@@ -2,4 +2,4 @@ server:
 	docker-compose up
 
 test:
-	npm -s test
+	docker-compose --file docker-compose.yml run app

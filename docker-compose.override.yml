@@ -1,7 +1,6 @@
 version: "3.1"
 services:
   app:
-    command: >
-      bash -c "make test && nodos server -h 0.0.0.0"
+    command: nodos server -h 0.0.0.0
     ports:
       - "8080:8080"
