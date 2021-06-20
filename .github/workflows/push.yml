@@ -3,7 +3,7 @@ name: push
 on:
   push:
     branches:
-      - master
+      - main
 
 env:
   APP_IMAGE_NAME: glagius/devops-for-programmers-project-lvl1
