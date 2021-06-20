@@ -33,7 +33,7 @@ jobs:
           tags: ${{ env.APP_IMAGE_NAME }}:latest
 
       - name: Test production buid
-        run: make test
+        run: make production
 
       - name: Push
         uses: docker/build-push-action@v2
