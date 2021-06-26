@@ -1,16 +1,12 @@
-version: "3.1"
+version: "3.2"
 services:
   app:
-    image: devops-for-programmers-project-lvl1:latest
+    image: glagius/devops-for-programmers-project-lvl1:latest
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+
     build:
       context: .
       dockerfile: Dockerfile
-
-  production:
-    image: devops-for-programmers-project-lvl1:latest
-    build:
-      context: .
-      dockerfile: Dockerfile.production
-    command: ["make", "test"]
-    # env_file:
-    #   - .env
