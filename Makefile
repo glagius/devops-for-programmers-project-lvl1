@@ -1,4 +1,4 @@
-test-production: build-prod
+test-image:
 	docker-compose run app make test
 
 clean:
