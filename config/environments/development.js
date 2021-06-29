@@ -9,8 +9,12 @@ export default async (app) => {
   app.config.logLevel = 'debug';
   app.config.cacheModules = false;
 
-  app.config.db = {
-    type: 'sqljs',
-    location: 'db/development.sqlite',
-  };
+  // app.config.db = {
+  //   type: process.env.NODOS_DB_TYPE,
+  //   database: process.env.NODOS_DB_TYPE,
+  // };
+  // app.config.db = {
+  //   type: 'sqljs',
+  //   location: 'db/development.sqlite',
+  // };
 };
