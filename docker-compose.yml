@@ -10,14 +10,11 @@ services:
       context: .
       dockerfile: Dockerfile
     depends_on:
-      - postgres
+      - db
 
-  postgres:
+  db:
     image: postgres:latest
     restart: always
     environment:
-      # POSTGRES_HOST_AUTH_METHOD: trust
-      POSTGRES_DB: ${NODOS_DB_HOSTNAME}
       POSTGRES_USER: ${NODOS_DB_USERNAME}
       POSTGRES_PASSWORD: ${NODOS_DB_PASSWORD}
-    # command: -c listen_addresses='*'
