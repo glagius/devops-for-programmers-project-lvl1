@@ -1,6 +1,8 @@
 /* @ts-check */
 
 export default async (request, response) => {
-  console.log('Incoming request: ', request);
-  console.log('Incoming response: ', response);
+  if (process.env.DEVELOPMENT) {
+    console.log('Incoming request: ', request);
+    console.log('Incoming response: ', response);
+  }
 };

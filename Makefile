@@ -1,5 +1,5 @@
 test-image:
-	docker-compose up --abort-on-container-exit
+	docker-compose up test
 
 clean:
 	docker-compose down
