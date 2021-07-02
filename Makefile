@@ -1,5 +1,7 @@
+.PHONY: test lint
+
 test-image:
-	docker-compose up --abort-on-container-exit
+	NODOS_DB_HOSTNAME=db NODOS_DB_USERNAME=postgres NODOS_DB_PASSWORD=postgres docker-compose -f docker-compose.yml up --abort-on-container-exit
 
 clean:
 	docker-compose down
@@ -7,21 +9,20 @@ clean:
 server:
 	nodos server -h 0.0.0.0
 
-compose:
-	docker-compose up
+compose: install
+	docker-compose up --abort-on-container-exit
 
 test:
 	npm -s test
 
+lint:
+	npx eslint .
+
 install:
 	npm install
 
-develop: install build-dev compose
+build-production:
+	docker-compose -f docker-compose.yml build app
 
-production: build-prod compose
-
-build-prod:
-	docker build -f Dockerfile.production -t glagius/devops-for-programmers-project-lvl1 .
-
-build-dev:
-	docker build -f Dockerfile -t glagius/devops-for-programmers-project-lvl1 .
+build-development:
+	docker-compose build app
