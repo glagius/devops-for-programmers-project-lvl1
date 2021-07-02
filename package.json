@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.13.10",
+    "@babel/eslint-parser": "^7.14.7",
     "@babel/node": "^7.13.10",
     "@babel/preset-env": "^7.13.10",
     "@nodosjs/cli": "^0.0.57",
@@ -20,8 +21,8 @@
     "@nodosjs/db-typeorm-extension": "^0.0.57",
     "@nodosjs/view-extension": "^0.0.57",
     "@nodosjs/webpack-extension": "^0.0.57",
-    "sql.js": "^1.5.0",
-    "pg": "^8.5.1"
+    "pg": "^8.5.1",
+    "sql.js": "^1.5.0"
   },
   "devDependencies": {
     "@nodosjs/jest-environment": "^0.0.57",
