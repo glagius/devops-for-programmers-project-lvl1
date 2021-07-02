@@ -1,5 +1,5 @@
 test-image:
-	docker-compose up test
+	docker-compose run test
 
 clean:
 	docker-compose down
