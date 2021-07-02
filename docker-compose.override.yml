@@ -16,6 +16,7 @@ services:
       - caddy_config:/config
     depends_on:
         - app
+    container_name: caddy
 
 volumes:
   caddy_data:

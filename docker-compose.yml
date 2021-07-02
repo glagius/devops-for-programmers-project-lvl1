@@ -9,6 +9,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: application
     depends_on:
       - db
 
@@ -18,3 +19,8 @@ services:
     environment:
       POSTGRES_USER: ${NODOS_DB_USERNAME}
       POSTGRES_PASSWORD: ${NODOS_DB_PASSWORD}
+    container_name: database
+
+  test:
+    image: glagius/devops-for-programmers-project-lvl1:latest
+    command: ["make", "test"]
