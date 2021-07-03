@@ -21,6 +21,17 @@ services:
       POSTGRES_PASSWORD: ${NODOS_DB_PASSWORD}
     container_name: database
 
+  # FIXME: Мне кажется это должно работать иначе,
+  # но другого варианта как запустить npm команду в другом контейнере я не придумал.
   test:
     image: glagius/devops-for-programmers-project-lvl1:latest
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - app
     command: ["make", "test"]
