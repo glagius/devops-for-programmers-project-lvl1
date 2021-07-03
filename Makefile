@@ -1,5 +1,5 @@
 test-image:
-	docker-compose run test
+	docker-compose -f docker-compose.yml up --abort-on-container-exit
 
 clean:
 	docker-compose down
