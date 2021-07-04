@@ -51,6 +51,7 @@ jobs:
         run: docker-compose pull --ignore-pull-failures
 
       - name: Test production build
+        working-directory: .
         run: make test-image
 
       - name: Push
