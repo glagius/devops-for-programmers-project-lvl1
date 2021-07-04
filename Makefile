@@ -1,7 +1,7 @@
 .PHONY: test lint
 
 test-image:
-	docker-compose -f docker-compose.yml up --abort-on-container-exit
+	NODOS_DB_USERNAME=postgres NODOS_DB_PASSWORD=postgres docker-compose -f docker-compose.yml up --abort-on-container-exit
 
 clean:
 	docker-compose down
