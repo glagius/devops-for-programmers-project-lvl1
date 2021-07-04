@@ -12,6 +12,7 @@ services:
     container_name: application
     depends_on:
       - db
+    command: ["make", "test"]
 
   db:
     image: postgres:13.2
@@ -20,18 +21,3 @@ services:
       POSTGRES_USER: ${NODOS_DB_USERNAME}
       POSTGRES_PASSWORD: ${NODOS_DB_PASSWORD}
     container_name: database
-
-  # FIXME: Мне кажется это должно работать иначе,
-  # но другого варианта как запустить npm команду в другом контейнере я не придумал.
-  test:
-    image: glagius/devops-for-programmers-project-lvl1:latest
-    volumes:
-      - type: bind
-        source: .
-        target: /app
-    build:
-      context: .
-      dockerfile: Dockerfile
-    depends_on:
-      - app
-    command: ["make", "test"]
