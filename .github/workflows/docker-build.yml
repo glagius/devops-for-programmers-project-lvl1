@@ -41,14 +41,13 @@ jobs:
         with:
           context: .
           file: Dockerfile.production
-          push: false
           load: true
-          tags: ${{ env.APP_IMAGE_NAME }}:cached
+          tags: ${{ env.APP_IMAGE_NAME }}:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,mode=max,dest=/tmp/.buildx-cache
 
-      # -
-      #   run: docker-compose pull --ignore-pull-failures
+      -
+        run: docker-compose pull --ignore-pull-failures
 
       - name: Test production build
         working-directory: .
