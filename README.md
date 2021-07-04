@@ -2,7 +2,15 @@
 [![Hexlet-check](https://github.com/glagius/devops-for-programmers-project-lvl1/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/glagius/devops-for-programmers-project-lvl1/actions/workflows/hexlet-check.yml)
 
 # Hexlet DevOps educational project.
+A project to learn how docker and docker-compose work.
 
-For develop run `make develop`
+## Required
+- docker
+- docker-compose
 
-For production run `make production`
+## For develop
+Use: `make compose`
+Don't forget to create `.env` file with necessary variables. Look at `.env.example`
+
+## For testing production image
+Use: `make test-image`

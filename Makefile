@@ -20,13 +20,3 @@ lint:
 
 install:
 	npm install
-
-develop: install build-dev compose
-
-production: build-prod compose
-
-build-prod:
-	docker build -f Dockerfile.production -t glagius/devops-for-programmers-project-lvl1 .
-
-build-dev:
-	docker build -f Dockerfile -t glagius/devops-for-programmers-project-lvl1 .
