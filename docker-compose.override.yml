@@ -10,7 +10,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: application-dev
+    container_name: application
     command: ["make", "server"]
 
   caddy:
