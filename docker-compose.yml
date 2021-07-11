@@ -2,10 +2,6 @@ version: "3.2"
 services:
   app:
     image: glagius/devops-for-programmers-project-lvl1:latest
-    volumes:
-      - type: bind
-        source: .
-        target: /app
     build:
       context: .
       dockerfile: Dockerfile.production

@@ -9,4 +9,6 @@ RUN npm install
 
 COPY . .
 
-CMD ["npm", "start"]
+EXPOSE 8080
+
+CMD ["make", "server"]
