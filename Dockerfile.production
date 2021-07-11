@@ -9,11 +9,6 @@ RUN npm install
 
 COPY . .
 
-ARG NODOS_DB_TYPE
-ARG NODOS_DB_HOSTNAME
-ARG NODOS_DB_USERNAME
-ARG NODOS_DB_PASSWORD
-
 EXPOSE 8080
 
-CMD ["npm", "start"]
+CMD ["make", "server"]

@@ -1,15 +1,15 @@
 .PHONY: test lint
 
-test-image:
-	NODOS_DB_HOSTNAME=db NODOS_DB_USERNAME=postgres NODOS_DB_PASSWORD=postgres docker-compose -f docker-compose.yml up --abort-on-container-exit
+test-image: check-env
+	docker-compose -f docker-compose.yml up --abort-on-container-exit
 
 clean:
 	docker-compose down
 
 server:
-	nodos server -h 0.0.0.0
+	npm start
 
-compose: install
+compose:
 	docker-compose up --abort-on-container-exit
 
 test:
@@ -17,6 +17,9 @@ test:
 
 lint:
 	npx eslint .
+
+check-env:
+	test ! -f .env && cat .env.example > .env || echo "File with environments already exist"
 
 install:
 	npm install
@@ -26,3 +29,7 @@ build-production:
 
 build-development:
 	docker-compose build app
+
+development: check-env install build-development compose
+
+production: check-env build-production compose

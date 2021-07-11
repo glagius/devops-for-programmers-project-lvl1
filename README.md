@@ -8,11 +8,15 @@ A project to learn how docker and docker-compose work.
 - docker
 - docker-compose
 
-## For develop
-Build development image: `make build-development`
-Create `.env` file with the necessary variables.
-Use: `make compose`
+## Necessary preparations
+Environments variables takes from `.env` file.
+It can be created manually or by script (`make check-env`), which gets all variables from `.env.example` and puts them to `.env` file, if file doesn't exist.
 
+## For develop
+Use: `make development`
+
+## For production
+Use: `make production`
 ## For testing production image
 Build production image: `make build-production`
 Use: `make test-image`
