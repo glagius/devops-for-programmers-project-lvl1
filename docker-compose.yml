@@ -7,6 +7,11 @@ services:
       dockerfile: Dockerfile.production
     environment:
       NODOS_HOST: 0.0.0.0
+      # Hotfix fixes not to switch to a new framework
+      NODOS_DB_TYPE: ${DATABASE_NAME}
+      NODOS_DB_HOSTNAME: ${DATABASE_HOST}
+      NODOS_DB_USERNAME: ${DATABASE_USERNAME}
+      NODOS_DB_PASSWORD: ${DATABASE_PASSWORD}
     depends_on:
       - db
     command: ["make", "test"]
@@ -16,6 +21,6 @@ services:
     image: postgres:13.2
     restart: always
     environment:
-      POSTGRES_USER: ${NODOS_DB_USERNAME}
-      POSTGRES_PASSWORD: ${NODOS_DB_PASSWORD}
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
     container_name: database
