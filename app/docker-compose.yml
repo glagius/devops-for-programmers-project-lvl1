@@ -1,0 +1,19 @@
+version: "3.2"
+services:
+  app:
+    image: glagius/devops-for-programmers-project-lvl1:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.production
+    depends_on:
+      - db
+    command: ["make", "test"]
+    container_name: application
+
+  db:
+    image: postgres:13.2
+    restart: always
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+    container_name: database

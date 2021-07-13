@@ -1,0 +1,6 @@
+node_modules
+.env
+Dockerfile
+Dockerfile.production
+docker-compose.override.yml
+docker-compose.yml
