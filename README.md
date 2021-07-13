@@ -20,3 +20,6 @@ Use: `make production`
 ## For testing production image
 Build production image: `make build-production`
 Use: `make test-image`
+
+## Link to docker-hub image.
+https://hub.docker.com/r/glagius/devops-for-programmers-project-lvl1

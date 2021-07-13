@@ -5,10 +5,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.production
-    container_name: application
+    environment:
+      NODOS_HOST: 0.0.0.0
     depends_on:
       - db
     command: ["make", "test"]
+    container_name: application
 
   db:
     image: postgres:13.2
