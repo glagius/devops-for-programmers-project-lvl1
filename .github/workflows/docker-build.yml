@@ -42,7 +42,7 @@ jobs:
 
       - name: Test production build
         working-directory: .
-        run: make test-image
+        run: make ci
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
