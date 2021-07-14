@@ -2,9 +2,6 @@ version: "3.2"
 services:
   app:
     image: glagius/devops-for-programmers-project-lvl1:latest
-    # TODO: I don't know why strapi works only with .env file in his directory, and can't catch variables from docker-compose.
-    env_file:
-      - .env
     build:
       context: .
       dockerfile: Dockerfile.production
