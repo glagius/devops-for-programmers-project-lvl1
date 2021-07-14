@@ -38,7 +38,6 @@ jobs:
           cache-to: type=local,mode=max,dest=/tmp/.buildx-cache
 
       - name: Test production build
-        working-directory: ./app
         run: make ci
 
       - name: Login to DockerHub
