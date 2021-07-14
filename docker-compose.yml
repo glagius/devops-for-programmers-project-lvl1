@@ -2,8 +2,10 @@ version: "3.2"
 services:
   app:
     image: glagius/devops-for-programmers-project-lvl1:latest
+    env_file:
+      - .env
     build:
-      context: .
+      context: ./app
       dockerfile: Dockerfile.production
     depends_on:
       - db

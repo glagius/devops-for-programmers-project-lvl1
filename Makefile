@@ -1,40 +1,12 @@
-.PHONY: test lint
+include make-compose.mk
 
-ci: check-env
-	docker-compose -f docker-compose.yml up --abort-on-container-exit
+setup-env:
+	@test ! -f .env && cat .env.example > .env || echo 'File with environments already exist'
 
-clean:
-	docker-compose down
+ci: setup-env compose-test-production
 
-compose:
-	docker-compose up --abort-on-container-exit
+clean: compose-down
 
-build-production:
-	docker-compose -f docker-compose.yml build app
+setup: setup-env compose-setup
 
-build-development:
-	docker-compose build app
-
-development: check-env install build-development compose
-
-production: check-env build-production compose
-
-install:
-	npm install
-
-# Run server in watch-mode
-develop:
-	npm run develop
-
-# Run server without watch mode
-server:
-	npm start
-
-test:
-	npx jest tests/root.test.js
-
-lint:
-	npx eslint .
-
-check-env:
-	test ! -f .env && cat .env.example > .env || echo "File with environments already exist"
+build-production: compose-build-production

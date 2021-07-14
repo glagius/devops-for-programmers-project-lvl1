@@ -10,14 +10,15 @@ A project to learn how docker and docker-compose work.
 
 ## Necessary preparations
 Docker compose use environments variables from `.env` file.
-It can be created manually or by script (`make check-env`), which gets all variables from `.env.example` and puts them to `.env` file, if file doesn't exist.
+It can be created manually or by script (`make setup-env`), which gets all variables from `.env.example` and puts them to `.env` file, if file doesn't exist.
 
+
+## Setup project
+Use: `make setup`
 ## For develop
-Use: `make development`
-
-## For production
-Use: `make production`
+Use: `make compose`
 ## For testing production image
+When you want to test image locally, check file `.strapi-updater.json` in ./app folder. If it exists - run `sudo rm ./app/strapi-updater.json`.
 Build production image: `make build-production`
 Use: `make test-image`
 

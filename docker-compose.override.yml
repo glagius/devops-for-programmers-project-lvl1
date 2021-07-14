@@ -5,13 +5,13 @@ services:
       - "8080:8080"
     volumes:
       - type: bind
-        source: .
+        source: ./app
         target: /app
     build:
-      context: .
+      context: ./app
       dockerfile: Dockerfile
     container_name: application
-    command: ["make", "server"]
+    command: ["make", "server-watch"]
 
   caddy:
     image: caddy:latest
@@ -19,7 +19,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - "$PWD/services/caddy/Caddyfile:/etc/caddy/Caddyfile"
+      - "$PWD/app/services/caddy/Caddyfile:/etc/caddy/Caddyfile"
       - "$PWD/app:/etc/caddy/app"
       - caddy_data:/data
       - caddy_config:/config
