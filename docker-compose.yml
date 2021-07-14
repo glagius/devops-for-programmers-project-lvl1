@@ -6,7 +6,7 @@ services:
     env_file:
       - .env
     build:
-      context: ./app
+      context: .
       dockerfile: Dockerfile.production
     depends_on:
       - db
