@@ -11,7 +11,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: application
-    command: ["make", "server-watch"]
+    command: ["make", "server"]
 
   caddy:
     image: caddy:latest
