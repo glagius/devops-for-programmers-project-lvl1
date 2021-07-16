@@ -1,7 +1,7 @@
 include make-compose.mk
 
 setup-env:
-	@test ! -f .env && cat .env.example > .env || echo 'File with environments already exist'
+	make -C app setup-env
 
 ci: setup-env compose-test-production
 

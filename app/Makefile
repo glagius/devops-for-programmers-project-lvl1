@@ -1,5 +1,8 @@
 .PHONY: test lint
 
+setup-env:
+	@test ! -f .env && cat .env.example > .env || echo 'File with environments already exist'
+
 # Run server in watch-mode
 server-watch:
 	npm run develop
